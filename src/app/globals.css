@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens lifted from the reference template's own stylesheet.
+   Palette + type scale are 1:1; nothing here is invented.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-ink: #503228;        /* deep brown  — primary text, dark surfaces  */
+  --color-bark: #624136;       /* mid brown   — secondary text, hovers       */
+  --color-bone: #f7f8f1;       /* cream       — default page surface         */
+  --color-sage: #b5b9ac;       /* grey-green  — rules, muted marks           */
+  --color-sky: #aec5d5;        /* pale blue   — hero field                   */
+  --color-azure: #88abcb;      /* deeper blue — accents                      */
+  --color-gold: #b69f52;       /* brass       — highlights                   */
+  --color-blush: #eed6bb;      /* warm sand   — alt surface                  */
+
+  --font-display: var(--font-madefor-display), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-text: var(--font-madefor-text), "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* The template uses zero corner rounding throughout. Keep it that way. */
+  --radius-none: 0px;
+}
+
+@layer base {
+  :root {
+    /* header = 10px outer gutter + bar height. Sections that sit under the
+       sticky bar read this rather than hard-coding it in three places. */
+    --header-h: 4.625rem;
+  }
+  @media (min-width: 768px) {
+    :root { --header-h: 5.375rem; }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: 1rem;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Horizontal rhythm — one gutter, used everywhere. */
+  .shell {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .shell { padding-inline: 2.5rem; }
+  }
+  @media (min-width: 1280px) {
+    .shell { padding-inline: 3.5rem; }
+  }
+
+  /* Small caps eyebrow that sits above every section heading. */
+  .eyebrow {
+    font-family: var(--font-text);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-bark);
+  }
+
+  /* Pull a section up behind the sticky header, then pad it back. */
+  .under-header {
+    margin-top: calc(var(--header-h) * -1);
+    padding-top: var(--header-h);
+  }
+  .min-h-viewport {
+    /* Fill the first screen, but never collapse on a short laptop. */
+    min-height: max(calc(100svh - var(--header-h)), 34rem);
+  }
+
+  /* Full-bleed scroll track whose first item lines up with .shell content. */
+  .track {
+    padding-inline: max(1.5rem, calc((100% - 84rem) / 2 + 1.5rem));
+    /* Without this the snap port ignores the padding and the first slide
+       scrolls itself flush to the viewport edge. */
+    scroll-padding-inline-start: max(1.5rem, calc((100% - 84rem) / 2 + 1.5rem));
+  }
+  @media (min-width: 768px) {
+    .track {
+      padding-inline: max(2.5rem, calc((100% - 84rem) / 2 + 2.5rem));
+      scroll-padding-inline-start: max(2.5rem, calc((100% - 84rem) / 2 + 2.5rem));
+    }
+  }
+  @media (min-width: 1280px) {
+    .track {
+      padding-inline: max(3.5rem, calc((100% - 84rem) / 2 + 3.5rem));
+      scroll-padding-inline-start: max(3.5rem, calc((100% - 84rem) / 2 + 3.5rem));
+    }
+  }
+
+  /* Hairline the template uses to separate stacked blocks. */
+  .rule {
+    border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  }
+}
+
+/* Fluid display sizes — matches the reference's 72/42/38/34/28 ramp. */
+.t-hero  { font-size: clamp(2.75rem, 6.4vw, 5.25rem); }
+.t-h2    { font-size: clamp(2rem, 4.1vw, 3.25rem); }
+.t-h3    { font-size: clamp(1.5rem, 2.4vw, 2.125rem); }
+.t-h4    { font-size: clamp(1.25rem, 1.7vw, 1.5rem); }
+.t-lead  { font-size: clamp(1.0625rem, 1.35vw, 1.25rem); line-height: 1.5; }
+
+/* Underline that grows from the left — used on nav + text links. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  padding-bottom: 2px;
+}
+.link-underline:hover,
+.link-underline[data-active="true"] {
+  background-size: 100% 1px;
+}
+
+/* Scroll reveal — hidden state in CSS so <noscript> can undo it. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
