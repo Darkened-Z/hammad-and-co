@@ -50,9 +50,22 @@ export default function AboutPage() {
                 shutting at ten.
               </p>
               <p>
+                Before that I&rsquo;d spent five years managing a grocery store, two
+                years as an independent contractor for Amazon, and three years
+                running shifts as assistant manager at Burger King. None of it
+                was glamorous, but it taught me how stock actually moves and
+                what people actually want when they are not being sold to.
+              </p>
+              <p>
                 What changed the business was not a strategy. It was cafés asking
                 whether they could buy a case instead of a tin, and customers who
                 had moved away asking whether we could post it. So we did both.
+              </p>
+              <p>
+                Most of our customers are not chasing the cheapest thing on the
+                shelf. They want good things at a price that does not punish
+                them for shopping carefully — that is who we buy for, every
+                morning at market.
               </p>
               <p>
                 Today the shop, the Amazon storefront and the eBay shop all run
@@ -60,9 +73,16 @@ export default function AboutPage() {
                 from the same pallet the man in front of you just bought from.
                 That is the whole trick.
               </p>
+              <p>
+                Outside the shop I have a stake in Smoke Zone with AZ Retail and
+                in Pak Foods, a Save A Lot store — different counters, same
+                instinct for what is worth stocking. The plan is more branches,
+                not just more lines. Off the clock it is cricket and whatever
+                trip I am planning next.
+              </p>
             </div>
             <p className="mt-9 font-display text-[1.1rem] font-bold tracking-[-0.02em] text-ink">
-              Hammad
+              Hammad Farooq
               <span className="ml-3 font-text text-[0.9rem] font-normal text-bark/70">
                 Owner, {site.name}
               </span>
