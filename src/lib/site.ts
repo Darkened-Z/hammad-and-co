@@ -25,9 +25,7 @@ export const site = {
   email: "hello@hammadandco.co.uk",
 
   hours: [
-    { days: "Monday – Friday", time: "7:00 – 22:00" },
-    { days: "Saturday", time: "7:00 – 22:00" },
-    { days: "Sunday", time: "8:00 – 21:00" },
+    { days: "Monday – Sunday", time: "8:00 – 21:00" },
     { days: "Trade deliveries", time: "Tuesday & Friday" },
   ],
 
