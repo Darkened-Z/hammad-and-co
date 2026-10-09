@@ -19,8 +19,8 @@ export default function AboutPage() {
         eyebrow="About"
         heading="Fifteen years, one street, three counters"
         body="A grocery shop that learned to post things. Everything below is the same business — the shelves just got further away."
-        image="/images/aisle-wide.jpg"
-        imageAlt="The main aisle of the Cheetham Hill store"
+        image="/images/storefront.jpg"
+        imageAlt="Exterior of the Hammad & Co. storefront"
       />
 
       {/* Owner note */}
