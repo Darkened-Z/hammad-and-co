@@ -41,22 +41,38 @@ export default function Hero() {
       </div>
 
       <div className="shell mt-10 md:mt-14">
-        <div className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-[16/7]">
+        <div className="relative grid gap-3 md:grid-cols-12 md:gap-4">
+          <figure className="relative md:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src={hero.image}
-              alt={hero.imageAlt}
+              src={hero.portrait}
+              alt={hero.portraitAlt}
               fill
               preload
               fetchPriority="high"
               quality={60}
-              sizes="(max-width: 1408px) 100vw, 88rem"
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="photo object-[50%_0%]"
+            />
+            </div>
+            <figcaption className="tag mt-3 text-mute md:absolute md:bottom-4 md:left-4 md:mt-0 md:rounded-full md:bg-cream md:px-3 md:py-1.5 md:text-ink">
+              Hammad Farooq · Owner
+            </figcaption>
+          </figure>
+
+          <div className="relative hidden overflow-hidden md:col-span-7 md:block">
+            <Image
+              src={hero.image}
+              alt={hero.imageAlt}
+              fill
+              quality={60}
+              sizes="(max-width: 1408px) 55vw, 50rem"
               className="photo object-[60%_center]"
             />
           </div>
 
           <div
-            className="absolute -bottom-6 left-4 w-[10.5rem] -rotate-2 bg-mustard text-ink shadow-[0_10px_30px_-12px_rgb(23_21_15/0.5)] md:-bottom-8 md:left-8 md:w-[13rem]"
+            className="absolute bottom-4 right-4 w-[10.5rem] -rotate-2 bg-mustard text-ink shadow-[0_10px_30px_-12px_rgb(23_21_15/0.5)] md:-bottom-8 md:left-[calc(41.667%+2rem)] md:right-auto md:w-[13rem]"
           >
             <p className="tag bg-tomato px-3 py-1.5 text-center text-cream">Every day</p>
             <p className="px-3 pt-2 text-center font-display text-[3.25rem] leading-none tracking-[-0.05em] md:text-[4.25rem]">

@@ -34,9 +34,14 @@ export default function ContactPage() {
           <h1 className="t-mega rise mt-8" style={{ animationDelay: "80ms" }}>
             Come in, ring up, <em className="text-tomato">or write.</em>
           </h1>
-          <p className="rise t-lead mt-8 max-w-md text-ink/70" style={{ animationDelay: "180ms" }}>
-            Someone who works in the shop answers all three. No ticket numbers.
-          </p>
+          <div className="rise mt-8 flex max-w-md items-center gap-4" style={{ animationDelay: "180ms" }}>
+            <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+              <Image src="/images/hammad-portrait.jpg" alt="" fill sizes="64px" className="photo object-[50%_8%] scale-[1.6] origin-top" />
+            </span>
+            <p className="t-lead text-ink/70">
+              Someone who works in the shop answers all three &mdash; usually Hammad. No ticket numbers.
+            </p>
+          </div>
         </div>
       </section>
 

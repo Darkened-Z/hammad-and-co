@@ -90,7 +90,7 @@ Formspree, Resend, or a Next.js route handler. The markup does not need to chang
 `public/images/store/` holds 15 real photographs of the shop floor (produce, endcaps,
 pallets, aisles), resized to 1400px. They are used both as content photos and, via
 `PhotoBackdrop`, toned into section colours behind gradients (hero, channel band, stats,
-closing band, footer, page heroes). `owner.jpg` and `storefront.jpg` are also real.
+closing band, footer, page heroes). `storefront.jpg`, `hammad-portrait.jpg` (home hero, contact) and `hammad-street.jpg` (about) are also real; the portrait is cropped to keep a house number out of frame.
 Still stock: `parcels.jpg` (Amazon channel) and the three testimonial avatars.
 
 ## Logo

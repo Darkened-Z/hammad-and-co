@@ -56,6 +56,8 @@ export const hero = {
   lines: ["Fresh in at six.", "On the shelf by nine."],
   sub: "A family grocery on Cheetham Hill Road. Same stock across the counter, on Amazon and on eBay.",
   cta: { label: "Browse the shelves", href: "/shop" },
+  portrait: "/images/hammad-portrait.jpg",
+  portraitAlt: "Hammad Farooq, owner of Aliyar",
   image: "/images/store/produce-wide.jpg",
   imageAlt: "The fruit and veg section at Aliyar, with sweet potatoes in the bins up front",
 };

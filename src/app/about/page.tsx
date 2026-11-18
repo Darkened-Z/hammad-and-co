@@ -40,8 +40,8 @@ export default function AboutPage() {
             <div className="lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
               <Reveal variant="clip" className="relative aspect-[4/5] overflow-hidden rounded-t-full">
                 <Image
-                  src="/images/owner.jpg"
-                  alt="Hammad, owner of the shop"
+                  src="/images/hammad-street.jpg"
+                  alt="Hammad Farooq, owner of Aliyar"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="photo"
