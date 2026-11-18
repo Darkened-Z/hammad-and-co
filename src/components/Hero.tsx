@@ -59,7 +59,7 @@ export default function Hero() {
             className="absolute -bottom-6 left-4 w-[10.5rem] -rotate-2 bg-mustard text-ink shadow-[0_10px_30px_-12px_rgb(23_21_15/0.5)] md:-bottom-8 md:left-8 md:w-[13rem]"
           >
             <p className="tag bg-tomato px-3 py-1.5 text-center text-cream">Every day</p>
-            <p className="px-3 pt-2 text-center font-display text-[3.25rem] font-semibold leading-none tracking-[-0.05em] md:text-[4.25rem]">
+            <p className="px-3 pt-2 text-center font-display text-[3.25rem] leading-none tracking-[-0.05em] md:text-[4.25rem]">
               {site.openFrom}–{site.openTo % 12 || 12}
             </p>
             <p className="tag px-3 pb-3 pt-2 text-center text-ink/70">

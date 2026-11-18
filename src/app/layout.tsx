@@ -9,7 +9,7 @@ import "./globals.css";
 const display = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["500", "600"],
+  weight: "500",
   variable: "--font-fraunces",
   display: "swap",
 });
