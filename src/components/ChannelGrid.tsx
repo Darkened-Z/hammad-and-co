@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Label } from "@/components/ui";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { channels } from "@/lib/site";
 
 /* An index of the four counters. Hovering a row swaps the photo on the right;
@@ -11,7 +12,12 @@ export default function ChannelGrid() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="where-to-buy" className="bg-leaf py-24 text-cream md:py-32">
+    <section id="where-to-buy" className="relative isolate bg-leaf py-24 text-cream md:py-32">
+      <PhotoBackdrop
+        src="/images/store/frozen-aisle.jpg"
+        position="bottom"
+        gradient="linear-gradient(180deg, rgb(30 59 44) 0%, rgb(30 59 44 / .84) 45%, rgb(30 59 44 / .6) 100%)"
+      />
       <div className="shell">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>

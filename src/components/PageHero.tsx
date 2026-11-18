@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Italicise } from "@/components/Italicise";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { Label } from "@/components/ui";
 
 export default function PageHero({
@@ -8,15 +9,24 @@ export default function PageHero({
   body,
   image,
   imageAlt,
+  backdrop,
 }: {
   eyebrow: string;
   heading: string;
   body?: string;
   image?: string;
   imageAlt?: string;
+  backdrop?: string;
 }) {
   return (
-    <section className="pt-12 md:pt-20">
+    <section className="relative isolate pt-12 md:pt-20">
+      {backdrop ? (
+        <PhotoBackdrop
+          src={backdrop}
+          blend="opacity-60 mix-blend-multiply grayscale"
+          gradient="linear-gradient(180deg, rgb(242 237 227 / .25) 0%, rgb(242 237 227 / .7) 60%, rgb(242 237 227) 100%)"
+        />
+      ) : null}
       <div className="shell">
         <Label className="rise">{eyebrow}</Label>
         <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">

@@ -5,13 +5,14 @@ import ShopGrid from "@/components/ShopGrid";
 import ClosingBand from "@/components/ClosingBand";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
 import Reveal from "@/components/Reveal";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { Label } from "@/components/ui";
 import { channels, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Shop",
   description:
-    "The full range at Hammad & Co. — fresh produce, store cupboard, world foods, household, chilled, bulk and clearance. In store, on Amazon and on eBay.",
+    "The full range at Aliyar — fresh produce, store cupboard, world foods, household, chilled, bulk and clearance. In store, on Amazon and on eBay.",
 };
 
 const deliveryNotes = [
@@ -28,6 +29,7 @@ export default function ShopPage() {
         eyebrow="Shop"
         heading="Fourteen hundred lines, *three ways* to get them."
         body="The range below is what we hold. Where you buy it only changes how it reaches you."
+        backdrop="/images/store/endcap-99c.jpg"
       />
 
       {/* Channel ledger */}
@@ -76,8 +78,8 @@ export default function ShopPage() {
             </p>
             <Reveal variant="clip" className="relative mt-10 aspect-[5/3] overflow-hidden">
               <Image
-                src="/images/warehouse-pallets.jpg"
-                alt="Palletised stock in the wholesale unit"
+                src="/images/store/pallet-deals.jpg"
+                alt="Case stock stacked on pallets on the shop floor"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="photo"

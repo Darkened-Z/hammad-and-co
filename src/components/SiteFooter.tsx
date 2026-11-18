@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/SiteHeader";
+import { Wordmark } from "@/components/Logo";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { nav, site } from "@/lib/site";
 
 export default function SiteFooter() {
@@ -7,7 +8,12 @@ export default function SiteFooter() {
   const telHref = `tel:${site.phone.replace(/\s/g, "")}`;
 
   return (
-    <footer className="bg-ink text-cream">
+    <footer className="relative isolate overflow-hidden bg-ink text-cream">
+      <PhotoBackdrop
+        src="/images/store/drinks-aisle.jpg"
+        position="bottom"
+        gradient="linear-gradient(180deg, rgb(23 21 15) 0%, rgb(23 21 15 / .92) 50%, rgb(23 21 15 / .62) 100%)"
+      />
       <div className="shell pt-20 md:pt-28">
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -56,7 +62,7 @@ export default function SiteFooter() {
       <div className="mt-20 overflow-hidden border-t border-cream/12 md:mt-28">
         <p
           aria-hidden
-          className="shell select-none whitespace-nowrap pt-6 font-display text-[13vw] leading-[0.85] tracking-[-0.05em] text-cream/[0.07] xl:text-[11.5rem]"
+          className="shell select-none whitespace-nowrap pt-6 font-display text-[26vw] leading-[0.82] tracking-[-0.05em] text-cream/[0.1] xl:text-[22rem]"
         >
           <Wordmark />
         </p>

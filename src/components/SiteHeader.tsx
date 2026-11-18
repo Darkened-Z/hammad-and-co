@@ -3,16 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Logo from "@/components/Logo";
 import OpenStatus from "@/components/OpenStatus";
 import { nav, site } from "@/lib/site";
-
-export function Wordmark({ className = "" }: { className?: string }) {
-  return (
-    <span className={`whitespace-nowrap font-display font-medium tracking-[-0.035em] ${className}`}>
-      Hammad <em className="mx-[0.06em] text-tomato">&amp;</em> Co.
-    </span>
-  );
-}
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -52,7 +45,7 @@ export default function SiteHeader() {
     >
       <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
         <Link href="/" className="text-[1.5rem] md:text-[1.7rem]" aria-label={`${site.name} home`}>
-          <Wordmark />
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">

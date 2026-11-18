@@ -2,11 +2,17 @@ import Image from "next/image";
 import { Button, TextLink } from "@/components/ui";
 import { Italicise } from "@/components/Italicise";
 import Stamp from "@/components/Stamp";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { hero, site, stats } from "@/lib/site";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative isolate overflow-hidden">
+      <PhotoBackdrop
+        src="/images/store/produce-aisle.jpg"
+        blend="opacity-40 mix-blend-multiply grayscale"
+        gradient="linear-gradient(90deg, rgb(242 237 227) 0%, rgb(242 237 227 / .92) 50%, rgb(242 237 227 / .7) 100%), linear-gradient(0deg, rgb(242 237 227) 0%, transparent 35%)"
+      />
       <div className="shell grid min-h-viewport items-center gap-12 pb-10 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <p className="tag rise flex flex-wrap items-center gap-x-3 gap-y-1 text-mute">

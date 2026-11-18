@@ -1,4 +1,4 @@
-# Hammad & Co. — store portfolio site
+# Aliyar — store portfolio site
 
 Multi-page portfolio site for an independent grocery and general store that trades
 across three counters: the shop itself, an Amazon storefront and an eBay shop.
@@ -39,7 +39,7 @@ supplied:
 | --- | --- |
 | Trading address | 128 Cheetham Hill Road, Manchester M8 8PZ |
 | Phone | 0161 000 0000 |
-| Email | hello@hammadandco.co.uk |
+| Email | hello@aliyar.co.uk |
 | Amazon storefront URL | amazon.co.uk root |
 | eBay shop URL | ebay.co.uk root |
 | Social links | platform roots |
@@ -87,11 +87,16 @@ Formspree, Resend, or a Next.js route handler. The markup does not need to chang
 
 ## Images
 
-24 photographs in `public/images/`, sourced from Unsplash and committed to the repo
-so the site has no external image dependency. Replace them with real photographs of
-the shop, the stockroom and the owner as soon as they exist — the layout is built
-around fixed aspect ratios (`4/5`, `4/3`, `1/1`, `3/4`), so swapped files just need
-to be roughly the right shape.
+`public/images/store/` holds 15 real photographs of the shop floor (produce, endcaps,
+pallets, aisles), resized to 1400px. They are used both as content photos and, via
+`PhotoBackdrop`, toned into section colours behind gradients (hero, channel band, stats,
+closing band, footer, page heroes). `owner.jpg` and `storefront.jpg` are also real.
+Still stock: `parcels.jpg` (Amazon channel) and the three testimonial avatars.
+
+## Logo
+
+`src/components/Logo.tsx` — the mark is the site's arch photo frame drawn as an "A",
+with a leaf at the apex, on a tomato disc. `src/app/icon.svg` is the same mark as the favicon.
 
 ## Deploying
 

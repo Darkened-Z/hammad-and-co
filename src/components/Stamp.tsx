@@ -1,3 +1,4 @@
+import { Mark } from "@/components/Logo";
 import { site } from "@/lib/site";
 
 /* Rotating circular seal — the shop's rubber stamp. */
@@ -13,8 +14,8 @@ export default function Stamp({ className = "" }: { className?: string }) {
           <textPath href="#stamp-circle">{text}</textPath>
         </text>
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center font-display text-[2.6rem] italic leading-none">
-        H
+      <span className="absolute inset-0 flex items-center justify-center">
+        <Mark className="h-[42%] w-[42%]" bg="var(--color-tomato)" />
       </span>
     </div>
   );

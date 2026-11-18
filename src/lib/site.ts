@@ -6,12 +6,12 @@
 --------------------------------------------------------------------------- */
 
 export const site = {
-  name: "Hammad & Co.",
+  name: "Aliyar",
   descriptor: "Grocery & General Store",
   established: 2011,
   tagline: "The shelves you trust, wherever you shop",
   metaDescription:
-    "Hammad & Co. is a family grocery and general store in Manchester, selling the same stock across the counter, on Amazon and on eBay.",
+    "Aliyar is a family grocery and general store in Manchester, selling the same stock across the counter, on Amazon and on eBay.",
 
   // TODO — replace with the real trading address, number and inbox.
   address: {
@@ -22,7 +22,7 @@ export const site = {
     mapsUrl: "https://maps.google.com/?q=Cheetham+Hill+Road+Manchester",
   },
   phone: "0161 000 0000",
-  email: "hello@hammadandco.co.uk",
+  email: "hello@aliyar.co.uk",
 
   openFrom: 8,
   openTo: 21,
@@ -57,8 +57,8 @@ export const hero = {
   lines: ["The shelves", "you *trust,*", "wherever", "you shop."],
   sub: "A family grocery and general store in Manchester — now feeding thousands more through Amazon and eBay.",
   cta: { label: "Browse the shelves", href: "/shop" },
-  image: "/images/produce-shelves.jpg",
-  imageAlt: "Fruit and vegetable shelves stacked at Hammad & Co.",
+  image: "/images/store/produce-wide.jpg",
+  imageAlt: "The fruit and veg section at Aliyar, with sweet potatoes in the bins up front",
 };
 
 export const stats = [
@@ -77,8 +77,8 @@ export const about = {
   ],
   cta: { label: "Read the story", href: "/about" },
   images: [
-    { src: "/images/aisle-wide.jpg", alt: "The main aisle of the Cheetham Hill store" },
-    { src: "/images/greens-display.jpg", alt: "Fresh herbs and greens on the produce display" },
+    { src: "/images/store/produce-aisle.jpg", alt: "The produce run along the side wall of the store" },
+    { src: "/images/store/veg-case.jpg", alt: "Cabbages, cucumbers and peppers in the chilled veg case" },
   ],
 };
 
@@ -108,8 +108,8 @@ export const channels: Channel[] = [
     badge: "Bulk & rare",
     body: "Case quantities, discontinued lines and imports you will not find on the high street. This is where the mixed stock lives.",
     cta: { label: "Open the eBay shop", href: site.marketplaces.ebay },
-    image: "/images/basket-goods.jpg",
-    imageAlt: "Mixed grocery stock made up for dispatch",
+    image: "/images/store/pallet-deals.jpg",
+    imageAlt: "Case stock stacked on pallets under the price boards",
   },
   {
     id: "store",
@@ -117,8 +117,8 @@ export const channels: Channel[] = [
     badge: "Open 7 days",
     body: "Produce in at six, on the shelf by nine, gone by teatime. Card, cash, and a proper conversation across the counter.",
     cta: { label: "Get directions", href: site.address.mapsUrl },
-    image: "/images/aisle-fresh.jpg",
-    imageAlt: "Chilled aisle inside the store",
+    image: "/images/store/grocery-aisle.jpg",
+    imageAlt: "A fully stocked grocery aisle inside the store",
   },
   {
     id: "trade",
@@ -126,8 +126,8 @@ export const channels: Channel[] = [
     badge: "Account terms",
     body: "Cases and pallets for cafés, takeaways and corner shops across Greater Manchester. Delivered Tuesday and Friday.",
     cta: { label: "Open an account", href: "/contact" },
-    image: "/images/warehouse-pallets.jpg",
-    imageAlt: "Palletised stock in the wholesale unit",
+    image: "/images/store/water-pallets.jpg",
+    imageAlt: "Pallets of bottled water and soft drinks on the shop floor",
   },
 ];
 
@@ -144,64 +144,64 @@ export const categories: Category[] = [
     name: "Fresh Produce",
     blurb:
       "Bought at market four mornings a week. If it is not good enough for our own kitchen it does not come off the van.",
-    image: "/images/peppers-crates.jpg",
-    imageAlt: "Crates of peppers, tomatoes and citrus",
+    image: "/images/store/veg-case.jpg",
+    imageAlt: "The chilled veg case: cabbage, cucumbers, peppers and greens",
     where: ["In store"],
   },
   {
     name: "Store Cupboard",
     blurb:
       "Rice, flour, oils, pulses and tinned goods — household tins through to 20kg catering sacks.",
-    image: "/images/shelves-coffee.jpg",
-    imageAlt: "Packed dry goods shelving",
+    image: "/images/store/endcap-99c.jpg",
+    imageAlt: "Tinned goods stacked on an endcap under 99¢ signs",
     where: ["Amazon", "eBay", "In store"],
   },
   {
     name: "World Foods",
     blurb:
       "South Asian, Middle Eastern, Polish and Caribbean lines. The aisle people drive across the city for.",
-    image: "/images/market-spread.jpg",
-    imageAlt: "Wide spread of world food produce",
+    image: "/images/store/pasta-endcap.jpg",
+    imageAlt: "An endcap of imported pasta sauces and jars",
     where: ["eBay", "In store"],
   },
   {
     name: "Household & Cleaning",
     blurb:
       "Detergents, paper goods and kitchenware. Branded where it matters, own-label where it does not.",
-    image: "/images/aisle-household.jpg",
-    imageAlt: "Household and cleaning aisle",
+    image: "/images/store/drinks-aisle.jpg",
+    imageAlt: "Household and drinks aisle",
     where: ["Amazon", "In store"],
   },
   {
     name: "Chilled & Dairy",
     blurb:
       "Milk, yoghurt, cheese and cooked meats. Deliveries in daily, dated properly, rotated properly.",
-    image: "/images/dairy-deli.jpg",
-    imageAlt: "Cheese, eggs, milk and bread from the chilled counter",
+    image: "/images/store/salad-case.jpg",
+    imageAlt: "The chilled case with bagged salads and fresh-cut produce",
     where: ["In store"],
   },
   {
     name: "Bulk & Catering",
     blurb:
       "Sacks, cases and pallets, priced per unit rather than per pack. Built for kitchens, not cupboards.",
-    image: "/images/warehouse-pallets.jpg",
-    imageAlt: "Bulk sacks and cases on pallets",
+    image: "/images/store/water-pallets.jpg",
+    imageAlt: "Bulk cases stacked on pallets",
     where: ["eBay", "Trade"],
   },
   {
     name: "Clearance & Job Lots",
     blurb:
       "End-of-line stock, overruns and the occasional genuine find. Listed as-is and described honestly.",
-    image: "/images/warehouse-aisle.jpg",
-    imageAlt: "End-of-line stock held in the racking",
+    image: "/images/store/crate-deals.jpg",
+    imageAlt: "A wooden crate of clearance lines under a price sign",
     where: ["eBay"],
   },
   {
     name: "Weekly Boxes",
     blurb:
       "Fruit and veg boxes made up Thursday night. Collect Friday, or delivered inside the M60.",
-    image: "/images/basket-shopper.jpg",
-    imageAlt: "A weekly fruit and vegetable box being made up",
+    image: "/images/store/fruit-corner.jpg",
+    imageAlt: "The fruit corner where weekly boxes are made up",
     where: ["Amazon", "In store"],
   },
 ];
@@ -211,13 +211,13 @@ export const featured = {
   heading: "On the shelf right now",
   body: "What came off the van this morning, and what is moving fastest across the three counters.",
   slides: [
-    { src: "/images/produce-shelves.jpg", alt: "Full produce wall", caption: "Produce wall, Tuesday market run" },
-    { src: "/images/citrus-crates.jpg", alt: "Crates of citrus fruit", caption: "Spanish citrus, in by the case" },
-    { src: "/images/carrots-market.jpg", alt: "Carrots and spring onions", caption: "Roots and alliums, loose by the kilo" },
-    { src: "/images/market-stall.jpg", alt: "Market stall produce", caption: "Salad line, restocked twice daily" },
-    { src: "/images/root-veg.jpg", alt: "Assorted root vegetables", caption: "Winter roots, catering sacks" },
-    { src: "/images/veg-board.jpg", alt: "Vegetables arranged on a board", caption: "Weekly box, standard build" },
-    { src: "/images/fruit-bowl.jpg", alt: "Bowl of mixed fruit", caption: "Cut fruit, made up in store" },
+    { src: "/images/store/produce-wide.jpg", alt: "The fruit and veg floor", caption: "Fruit & veg, restocked every morning" },
+    { src: "/images/store/fruit-corner.jpg", alt: "The fruit corner", caption: "Apples, citrus and melons by the case" },
+    { src: "/images/store/salad-case.jpg", alt: "Bagged salad and fresh-cut case", caption: "Bagged salad, rotated twice a day" },
+    { src: "/images/store/bakery-tables.jpg", alt: "Bakery tables with cakes and pastries", caption: "Bakery tables by the front aisle" },
+    { src: "/images/store/snack-endcap.jpg", alt: "Snack endcap", caption: "Snacks and sauces on the endcap" },
+    { src: "/images/store/endcap-99c.jpg", alt: "99 cent endcap", caption: "The 99¢ wall, tins and staples" },
+    { src: "/images/store/crate-deals.jpg", alt: "Crate of deals", caption: "Crate deals, while they last" },
   ],
 };
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import OpenStatus from "@/components/OpenStatus";
 import Reveal from "@/components/Reveal";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import { Label } from "@/components/ui";
 import { channels, site } from "@/lib/site";
 
@@ -22,7 +23,12 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="pt-12 md:pt-20">
+      <section className="relative isolate pt-12 pb-4 md:pt-20">
+        <PhotoBackdrop
+          src="/images/store/bakery-tables.jpg"
+          blend="opacity-60 mix-blend-multiply grayscale"
+          gradient="linear-gradient(180deg, rgb(242 237 227 / .25) 0%, rgb(242 237 227 / .72) 60%, rgb(242 237 227) 100%)"
+        />
         <div className="shell">
           <Label className="rise">Contact</Label>
           <h1 className="t-mega rise mt-8" style={{ animationDelay: "80ms" }}>
@@ -35,7 +41,7 @@ export default function ContactPage() {
       </section>
 
       {/* Big direct lines */}
-      <section className="mt-16 border-y border-ink md:mt-20">
+      <section className="mt-12 border-y border-ink md:mt-16">
         <div className="shell grid md:grid-cols-2">
           <a href={telHref} className="group border-b border-line py-8 md:border-b-0 md:border-r md:py-12 md:pr-8">
             <p className="tag text-mute">Ring the shop</p>
@@ -123,8 +129,8 @@ export default function ContactPage() {
       <section className="shell pb-24 md:pb-32">
         <Reveal variant="clip" className="relative aspect-[16/9] overflow-hidden rounded-t-[50vw] md:aspect-[21/8]">
           <Image
-            src="/images/aisle-household.jpg"
-            alt="Inside the Cheetham Hill store"
+            src="/images/store/produce-aisle.jpg"
+            alt="The produce run inside the store"
             fill
             sizes="(max-width: 1408px) 100vw, 88rem"
             className="photo"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
+import PhotoBackdrop from "@/components/PhotoBackdrop";
 import StatsRow from "@/components/StatsRow";
 import ClosingBand from "@/components/ClosingBand";
 import { Label } from "@/components/ui";
@@ -29,7 +30,7 @@ export default function AboutPage() {
         heading="Fifteen years, one street, *three counters.*"
         body="A grocery shop that learned to post things. Everything below is the same business — the shelves just got further away."
         image="/images/storefront.jpg"
-        imageAlt="Exterior of the Hammad & Co. storefront"
+        imageAlt="Exterior of the store"
       />
 
       {/* Owner note — portrait pins while the letter scrolls past it */}
@@ -94,7 +95,11 @@ export default function AboutPage() {
       </section>
 
       {/* Values — three rules, set like shop signage */}
-      <section className="bg-ink py-24 text-cream md:py-32">
+      <section className="relative isolate bg-ink py-24 text-cream md:py-32">
+        <PhotoBackdrop
+          src="/images/store/grocery-aisle.jpg"
+          gradient="linear-gradient(180deg, rgb(23 21 15 / .94) 0%, rgb(23 21 15 / .78) 100%)"
+        />
         <div className="shell">
           <Label index="03" light>How we trade</Label>
           <h2 className="t-h2 mt-8">Three rules that <em className="text-mustard">haven&rsquo;t moved.</em></h2>
