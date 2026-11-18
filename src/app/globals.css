@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Design tokens lifted from the reference template's own stylesheet.
-   Palette + type scale are 1:1; nothing here is invented.
+   Art direction: market signage. Warm paper, near-black ink, one tomato-red
+   accent used sparingly, a deep leaf green for the occasional dark band.
+   Fraunces carries the voice; Hanken Grotesk does the work; mono is for
+   anything that would be printed on a price tag.
 --------------------------------------------------------------------------- */
 @theme {
-  --color-ink: #503228;        /* deep brown  — primary text, dark surfaces  */
-  --color-bark: #624136;       /* mid brown   — secondary text, hovers       */
-  --color-bone: #f7f8f1;       /* cream       — default page surface         */
-  --color-sage: #b5b9ac;       /* grey-green  — rules, muted marks           */
-  --color-sky: #aec5d5;        /* pale blue   — hero field                   */
-  --color-azure: #88abcb;      /* deeper blue — accents                      */
-  --color-gold: #b69f52;       /* brass       — highlights                   */
-  --color-blush: #eed6bb;      /* warm sand   — alt surface                  */
+  --color-paper: #f2ede3;
+  --color-cream: #faf7f0;
+  --color-ink: #17150f;
+  --color-mute: #6b6558;
+  --color-line: #d8cfbe;
+  --color-tomato: #d63a1f;
+  --color-leaf: #1e3b2c;
+  --color-mustard: #e3b23c;
 
-  --font-display: var(--font-madefor-display), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-text: var(--font-madefor-text), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-text: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, Menlo, monospace;
 
-  /* The template uses zero corner rounding throughout. Keep it that way. */
-  --radius-none: 0px;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
   :root {
-    /* header = 10px outer gutter + bar height. Sections that sit under the
-       sticky bar read this rather than hard-coding it in three places. */
-    --header-h: 4.625rem;
+    --header-h: 4rem;
   }
   @media (min-width: 768px) {
-    :root { --header-h: 5.375rem; }
+    :root { --header-h: 4.5rem; }
   }
 
   html {
@@ -38,40 +38,58 @@
   }
 
   body {
-    background-color: var(--color-bone);
+    background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-text);
     font-size: 1rem;
     line-height: 1.55;
-    letter-spacing: -0.005em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Paper grain — fixed, so it doesn't scroll with the content. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.32 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.022em;
-    line-height: 1.06;
+    font-weight: 500;
+    font-variation-settings: "SOFT" 30;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
     text-wrap: balance;
   }
 
+  h3, h4 { letter-spacing: -0.015em; }
+
+  em {
+    font-style: italic;
+    font-variation-settings: "SOFT" 100;
+  }
+
   ::selection {
-    background-color: var(--color-ink);
-    color: var(--color-bone);
+    background-color: var(--color-tomato);
+    color: var(--color-cream);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-tomato);
     outline-offset: 3px;
   }
 }
 
 @layer components {
-  /* Horizontal rhythm — one gutter, used everywhere. */
   .shell {
     width: 100%;
-    max-width: 84rem;
+    max-width: 88rem;
     margin-inline: auto;
-    padding-inline: 1.5rem;
+    padding-inline: 1rem;
   }
   @media (min-width: 768px) {
     .shell { padding-inline: 2.5rem; }
@@ -80,66 +98,56 @@
     .shell { padding-inline: 3.5rem; }
   }
 
-  /* Small caps eyebrow that sits above every section heading. */
-  .eyebrow {
-    font-family: var(--font-text);
-    font-size: 0.75rem;
+  /* Price-tag label: mono, tracked, uppercase. */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-bark);
   }
 
-  /* Pull a section up behind the sticky header, then pad it back. */
-  .under-header {
-    margin-top: calc(var(--header-h) * -1);
-    padding-top: var(--header-h);
-  }
   .min-h-viewport {
-    /* Fill the first screen, but never collapse on a short laptop. */
-    min-height: max(calc(100svh - var(--header-h)), 34rem);
+    min-height: max(calc(100svh - var(--header-h)), 36rem);
   }
 
-  /* Full-bleed scroll track whose first item lines up with .shell content. */
   .track {
-    padding-inline: max(1.5rem, calc((100% - 84rem) / 2 + 1.5rem));
-    /* Without this the snap port ignores the padding and the first slide
-       scrolls itself flush to the viewport edge. */
-    scroll-padding-inline-start: max(1.5rem, calc((100% - 84rem) / 2 + 1.5rem));
+    padding-inline: max(1rem, calc((100% - 88rem) / 2 + 1rem));
+    scroll-padding-inline-start: max(1rem, calc((100% - 88rem) / 2 + 1rem));
   }
   @media (min-width: 768px) {
     .track {
-      padding-inline: max(2.5rem, calc((100% - 84rem) / 2 + 2.5rem));
-      scroll-padding-inline-start: max(2.5rem, calc((100% - 84rem) / 2 + 2.5rem));
+      padding-inline: max(2.5rem, calc((100% - 88rem) / 2 + 2.5rem));
+      scroll-padding-inline-start: max(2.5rem, calc((100% - 88rem) / 2 + 2.5rem));
     }
   }
   @media (min-width: 1280px) {
     .track {
-      padding-inline: max(3.5rem, calc((100% - 84rem) / 2 + 3.5rem));
-      scroll-padding-inline-start: max(3.5rem, calc((100% - 84rem) / 2 + 3.5rem));
+      padding-inline: max(3.5rem, calc((100% - 88rem) / 2 + 3.5rem));
+      scroll-padding-inline-start: max(3.5rem, calc((100% - 88rem) / 2 + 3.5rem));
     }
   }
 
-  /* Hairline the template uses to separate stacked blocks. */
-  .rule {
-    border-top: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  /* One photo grade across the whole site so stock and real shots sit together. */
+  .photo {
+    object-fit: cover;
+    filter: saturate(0.88) contrast(1.04) sepia(0.06);
   }
 }
 
-/* Fluid display sizes — matches the reference's 72/42/38/34/28 ramp. */
-.t-hero  { font-size: clamp(2.75rem, 6.4vw, 5.25rem); }
-.t-h2    { font-size: clamp(2rem, 4.1vw, 3.25rem); }
-.t-h3    { font-size: clamp(1.5rem, 2.4vw, 2.125rem); }
-.t-h4    { font-size: clamp(1.25rem, 1.7vw, 1.5rem); }
-.t-lead  { font-size: clamp(1.0625rem, 1.35vw, 1.25rem); line-height: 1.5; }
+.t-mega  { font-size: clamp(3.25rem, 10.5vw, 10rem); line-height: 0.9; }
+.t-hero  { font-size: clamp(2.75rem, 7vw, 6.5rem); line-height: 0.94; }
+.t-h2    { font-size: clamp(2.25rem, 4.8vw, 4.25rem); }
+.t-h3    { font-size: clamp(1.625rem, 2.6vw, 2.375rem); line-height: 1.05; }
+.t-h4    { font-size: clamp(1.25rem, 1.7vw, 1.5rem); line-height: 1.1; }
+.t-lead  { font-size: clamp(1.0625rem, 1.3vw, 1.25rem); line-height: 1.5; }
 
-/* Underline that grows from the left — used on nav + text links. */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0% 1px;
-  transition: background-size 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-size 300ms var(--ease-out-expo);
   padding-bottom: 2px;
 }
 .link-underline:hover,
@@ -147,29 +155,57 @@
   background-size: 100% 1px;
 }
 
-/* Scroll reveal — hidden state in CSS so <noscript> can undo it. */
+/* Reveal variants — hidden state lives in CSS so <noscript> can undo it. */
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
   transition:
-    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 900ms var(--ease-out-expo),
+    transform 900ms var(--ease-out-expo),
+    clip-path 1100ms var(--ease-out-expo);
 }
+.reveal[data-variant="rise"] { opacity: 0; transform: translateY(28px); }
+.reveal[data-variant="fade"] { opacity: 0; }
+.reveal[data-variant="clip"] { clip-path: inset(100% 0 0 0); }
+.reveal[data-variant="scale"] { opacity: 0; transform: scale(0.96); }
 .reveal[data-shown="true"] {
   opacity: 1;
   transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Headline lines slide up from behind a mask. */
+.line-mask { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
+.line-mask > span {
+  display: block;
+  animation: line-up 1100ms var(--ease-out-expo) both;
+}
+@keyframes line-up {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
 }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.rise { animation: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.rise { animation: rise 900ms var(--ease-out-expo) both; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 38s linear infinite; }
+.marquee-wrap:hover .marquee { animation-play-state: paused; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot { animation: pulse-dot 2.2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rise { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .rise, .line-mask > span, .marquee, .pulse-dot { animation: none; }
+  .reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

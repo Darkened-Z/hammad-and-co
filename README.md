@@ -3,16 +3,16 @@
 Multi-page portfolio site for an independent grocery and general store that trades
 across three counters: the shop itself, an Amazon storefront and an eBay shop.
 
-Built to match the Wix template `wh-1449` ("Family Photographer — Soft", demo brand
-*Lenora Moss*). The palette, type ramp, zero-radius geometry and section rhythm were
-lifted from that template's own stylesheet rather than approximated by eye.
+Art direction is "market signage": warm paper, near-black ink, one tomato-red accent,
+a leaf-green band, Fraunces for the voice and mono price-tag labels. Every section has
+its own layout — no repeated card grids.
 
 ## Stack
 
 - Next.js 16 (App Router, Turbopack) + React 19
 - Tailwind CSS v4 (tokens declared in `src/app/globals.css` under `@theme`)
 - TypeScript
-- `next/font/google` — **Wix Madefor Display** + **Wix Madefor Text**, the template's actual typefaces
+- `next/font/google` — **Fraunces** (display, variable `opsz`/`SOFT`), **Hanken Grotesk** (text), **JetBrains Mono** (labels)
 
 No CMS, no database, no API keys. Every page is statically prerendered.
 
@@ -52,31 +52,31 @@ they are.
 
 ## Design tokens
 
-Taken from the reference template's compiled CSS:
+Declared under `@theme` in `src/app/globals.css`:
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `ink` | `#503228` | Body text, dark bands, buttons |
-| `bark` | `#624136` | Secondary text, hovers |
-| `bone` | `#F7F8F1` | Default page surface, header bar |
-| `sage` | `#B5B9AC` | Muted section grounds |
-| `sky` | `#AEC5D5` | Hero and page-hero field |
-| `azure` | `#88ABCB` | Accent |
-| `gold` | `#B69F52` | Accent |
-| `blush` | `#EED6BB` | Alternate warm surface |
+| `paper` | `#F2EDE3` | Page surface (with fixed grain overlay) |
+| `cream` | `#FAF7F0` | Raised surfaces, text on dark |
+| `ink` | `#17150F` | Text, footer, primary button |
+| `mute` | `#6B6558` | Labels, secondary text |
+| `line` | `#D8CFBE` | Hairlines |
+| `tomato` | `#D63A1F` | The one accent — emphasis, CTA, closing band |
+| `leaf` | `#1E3B2C` | Dark band (channels, stats) |
+| `mustard` | `#E3B23C` | Accent on dark surfaces only |
 
-Two rules carried over from the template and worth keeping: **nothing is rounded**
-(no `border-radius` anywhere), and headings are tightly tracked (`-0.022em`) with
-near-solid leading.
+Rules: photos are square-cornered or arched (`rounded-t-full`), buttons and tags are
+pills, no drop shadows. All photos get the `.photo` grade so stock and real shots match.
+Display copy in `site.ts` can italicise a phrase with `*…*`.
 
 ## Pages
 
 | Route | Contents |
 | --- | --- |
-| `/` | Hero, stats band, about strip, four sales channels, range preview, testimonials, featured carousel, closing band |
-| `/about` | Page hero, owner note, stats, 2011–2026 timeline, three trading principles |
-| `/shop` | Page hero, channel strip, filterable department grid, delivery routes, featured carousel |
-| `/contact` | Details, opening hours, marketplace links, enquiry form, storefront band |
+| `/` | Hero + stats ledger, department marquee, about, channel index (hover-swapped photo), range bento, testimonial, photo strip, closing band |
+| `/about` | Page hero, owner letter with pinned portrait, stats, 2011–2026 timeline, three trading rules |
+| `/shop` | Page hero, channel ledger, sticky-filter department grid, delivery timetable, photo strip |
+| `/contact` | Big phone/email lines, address, live open/closed hours, enquiry form |
 
 ## The contact form
 

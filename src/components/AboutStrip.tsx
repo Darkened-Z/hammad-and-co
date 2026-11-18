@@ -1,50 +1,54 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { TextLink } from "@/components/ui";
+import { Italicise } from "@/components/Italicise";
+import { Label, TextLink } from "@/components/ui";
 import { about } from "@/lib/site";
 
 export default function AboutStrip() {
   return (
-    <section className="bg-bone py-24 md:py-32">
-      <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
-          <p className="eyebrow mb-6">{about.eyebrow}</p>
-          <h2 className="t-h2">{about.heading}</h2>
-          <div className="mt-8 space-y-5 text-[1.0625rem] leading-[1.62] text-bark/90">
-            {about.body.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-          <div className="mt-9">
-            <TextLink href={about.cta.href} className="text-ink">
-              {about.cta.label}
-            </TextLink>
-          </div>
-        </Reveal>
+    <section className="py-24 md:py-36">
+      <div className="shell">
+        <Label index="01">{about.eyebrow}</Label>
 
-        <div className="lg:col-span-7">
-          <div className="grid grid-cols-5 gap-4 md:gap-6">
-            <Reveal delay={80} className="col-span-3">
-              <div className="relative aspect-[4/5]">
-                <Image
-                  src={about.images[0].src}
-                  alt={about.images[0].alt}
-                  fill
-                  sizes="(max-width: 1024px) 60vw, 32vw"
-                  className="object-cover"
-                />
-              </div>
+        <div className="mt-10 grid gap-16 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-7">
+            <h2 className="t-h2 max-w-[14ch]">
+              <Italicise text={about.heading} emClass="text-tomato" />
+            </h2>
+            <div className="mt-10 grid gap-6 text-[1.0625rem] leading-[1.65] text-ink/75 sm:grid-cols-2 sm:gap-8">
+              {about.body.map((p, i) => (
+                <p key={p} className={i === 0 ? "first-letter:float-left first-letter:mr-2 first-letter:font-display first-letter:text-[3.6rem] first-letter:leading-[0.85] first-letter:text-ink" : ""}>
+                  {p}
+                </p>
+              ))}
+            </div>
+            <div className="mt-10">
+              <TextLink href={about.cta.href}>{about.cta.label}</TextLink>
+            </div>
+          </Reveal>
+
+          <div className="relative lg:col-span-5">
+            <Reveal variant="clip" className="relative aspect-[4/5] w-[82%]">
+              <Image
+                src={about.images[0].src}
+                alt={about.images[0].alt}
+                fill
+                sizes="(max-width: 1024px) 80vw, 34vw"
+                className="photo"
+              />
             </Reveal>
-            <Reveal delay={200} className="col-span-2 self-end">
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={about.images[1].src}
-                  alt={about.images[1].alt}
-                  fill
-                  sizes="(max-width: 1024px) 40vw, 22vw"
-                  className="object-cover"
-                />
-              </div>
+            <Reveal
+              variant="clip"
+              delay={180}
+              className="absolute -bottom-10 right-0 aspect-square w-[46%] border-[6px] border-paper md:-bottom-14"
+            >
+              <Image
+                src={about.images[1].src}
+                alt={about.images[1].alt}
+                fill
+                sizes="(max-width: 1024px) 45vw, 18vw"
+                className="photo"
+              />
             </Reveal>
           </div>
         </div>

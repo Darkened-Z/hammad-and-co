@@ -2,67 +2,50 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Label } from "@/components/ui";
 import { testimonials } from "@/lib/site";
 
+/* One quote at a time, set large. The speakers double as the tabs. */
 export default function Testimonials() {
   const [i, setI] = useState(0);
   const t = testimonials[i];
-  const go = (n: number) =>
-    setI((prev) => (prev + n + testimonials.length) % testimonials.length);
 
   return (
-    <section className="bg-sage/35 py-24 md:py-32">
-      <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-4">
-          <p className="eyebrow mb-6">Testimonials</p>
-          <h2 className="t-h2">Voices from the counter</h2>
+    <section className="border-y border-line bg-cream py-24 md:py-32">
+      <div className="shell">
+        <Label index="04">From the counter</Label>
 
-          <div className="mt-10 flex items-center gap-5">
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              aria-label="Previous testimonial"
-              className="flex h-11 w-11 items-center justify-center border border-ink/25 text-ink transition-colors hover:bg-ink hover:text-bone"
-            >
-              <span aria-hidden>&#8592;</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              aria-label="Next testimonial"
-              className="flex h-11 w-11 items-center justify-center border border-ink/25 text-ink transition-colors hover:bg-ink hover:text-bone"
-            >
-              <span aria-hidden>&#8594;</span>
-            </button>
-            <span className="font-display text-[0.95rem] font-semibold tabular-nums text-bark">
-              ({String(i + 1).padStart(2, "0")}) / ({String(testimonials.length).padStart(2, "0")})
-            </span>
-          </div>
-        </div>
+        <blockquote key={t.name} className="mt-10 md:mt-14">
+          <p className="rise font-display text-[clamp(1.875rem,4.4vw,4rem)] leading-[1.08] tracking-[-0.03em]">
+            <span aria-hidden className="mr-1 text-tomato">&ldquo;</span>
+            {t.quote}
+            <span aria-hidden className="text-tomato">&rdquo;</span>
+          </p>
+        </blockquote>
 
-        <div className="lg:col-span-8 lg:pl-6">
-          <blockquote key={t.name} className="rise">
-            <p className="t-h3 font-display font-bold leading-[1.28] tracking-[-0.02em] text-ink">
-              &ldquo;{t.quote}&rdquo;
-            </p>
-            <footer className="mt-10 flex items-center gap-4">
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden">
-                <Image
-                  src={t.avatar}
-                  alt=""
-                  fill
-                  sizes="56px"
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="font-display text-[1.05rem] font-bold tracking-[-0.02em] text-ink">
-                  {t.name}
-                </p>
-                <p className="text-[0.9rem] text-bark/80">{t.role}</p>
-              </div>
-            </footer>
-          </blockquote>
+        <div className="mt-14 grid gap-3 sm:grid-cols-3" role="tablist" aria-label="Choose a customer">
+          {testimonials.map((p, idx) => (
+            <button
+              key={p.name}
+              type="button"
+              role="tab"
+              aria-selected={idx === i}
+              onClick={() => setI(idx)}
+              className={`group flex items-center gap-4 border-t-2 pt-5 text-left transition-colors duration-300 ${
+                idx === i ? "border-tomato" : "border-line hover:border-ink/40"
+              }`}
+            >
+              <span className={`relative h-12 w-12 shrink-0 overflow-hidden rounded-full transition-[filter] duration-300 ${idx === i ? "" : "grayscale"}`}>
+                <Image src={p.avatar} alt="" fill sizes="48px" className="object-cover" />
+              </span>
+              <span>
+                <span className={`block font-display text-[1.2rem] leading-tight tracking-[-0.02em] ${idx === i ? "text-ink" : "text-ink/55 group-hover:text-ink"}`}>
+                  {p.name}
+                </span>
+                <span className="tag mt-1 block text-mute">{p.role}</span>
+              </span>
+            </button>
+          ))}
         </div>
       </div>
     </section>

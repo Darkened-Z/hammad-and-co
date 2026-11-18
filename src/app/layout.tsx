@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
-import { Wix_Madefor_Display, Wix_Madefor_Text } from "next/font/google";
+import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Wix_Madefor_Display({
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-madefor-display",
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const text = Wix_Madefor_Text({
+const text = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-madefor-text",
+  variable: "--font-hanken",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jbmono",
   display: "swap",
 });
 
@@ -37,17 +45,19 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${display.variable} ${text.variable}`}>
+    <html
+      lang="en-GB"
+      className={`${display.variable} ${text.variable} ${mono.variable}`}
+    >
       <head>
-        {/* Without JS the observer never runs, so undo the hidden state. */}
         <noscript>
-          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
+          <style>{`.reveal{opacity:1!important;transform:none!important;clip-path:none!important}`}</style>
         </noscript>
       </head>
       <body>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-bone"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-cream"
         >
           Skip to content
         </a>

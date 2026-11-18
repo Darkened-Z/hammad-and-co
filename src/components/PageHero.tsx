@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Italicise } from "@/components/Italicise";
+import { Label } from "@/components/ui";
 
 export default function PageHero({
   eyebrow,
@@ -14,33 +16,43 @@ export default function PageHero({
   imageAlt?: string;
 }) {
   return (
-    <section className="under-header bg-sky">
-      <div className="shell grid gap-12 py-20 md:py-28 lg:grid-cols-12 lg:items-end lg:gap-16">
-        <div className="lg:col-span-7">
-          <p className="eyebrow mb-6">{eyebrow}</p>
-          <h1 className="rise text-ink" style={{ fontSize: "clamp(2.5rem, 5.4vw, 4.25rem)" }}>
-            {heading}
+    <section className="pt-12 md:pt-20">
+      <div className="shell">
+        <Label className="rise">{eyebrow}</Label>
+        <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <h1 className="t-hero rise lg:col-span-8" style={{ animationDelay: "80ms" }}>
+            <Italicise text={heading} emClass="text-tomato" />
           </h1>
           {body ? (
-            <p className="t-lead mt-7 max-w-xl text-ink/85">{body}</p>
+            <p
+              className="rise t-lead max-w-md text-ink/70 lg:col-span-4 lg:pb-3"
+              style={{ animationDelay: "200ms" }}
+            >
+              {body}
+            </p>
           ) : null}
         </div>
-
-        {image ? (
-          <div className="lg:col-span-5">
-            <div className="relative aspect-[5/3] lg:aspect-[4/3]">
-              <Image
-                src={image}
-                alt={imageAlt ?? ""}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        ) : null}
       </div>
+
+      {image ? (
+        <div className="shell mt-12 md:mt-16">
+          <div
+            className="rise relative aspect-[4/3] overflow-hidden md:aspect-[21/9]"
+            style={{ animationDelay: "280ms" }}
+          >
+            <Image
+              src={image}
+              alt={imageAlt ?? ""}
+              fill
+              priority
+              sizes="(max-width: 1408px) 100vw, 88rem"
+              className="photo"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="shell mt-12"><div className="border-t border-ink" /></div>
+      )}
     </section>
   );
 }

@@ -1,47 +1,76 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/* Square-cornered solid button — the reference template uses no radius. */
-export function Button({
+const isExternalHref = (href: string) => /^https?:|^mailto:|^tel:/.test(href);
+
+function SmartLink({
   href,
+  className,
   children,
-  variant = "solid",
-  external = false,
-  className = "",
 }: {
   href: string;
+  className: string;
   children: ReactNode;
-  variant?: "solid" | "outline" | "light" | "outlineLight";
-  external?: boolean;
-  className?: string;
 }) {
-  const base =
-    "inline-flex items-center justify-center px-8 py-4 text-[0.95rem] font-medium transition-colors duration-200";
-  const variants = {
-    solid: "bg-ink text-bone hover:bg-bark",
-    outline: "border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-bone",
-    light: "bg-bone text-ink hover:bg-blush",
-    outlineLight: "border border-bone/35 text-bone hover:bg-bone hover:text-ink",
-  } as const;
-
-  const cls = `${base} ${variants[variant]} ${className}`;
-  const isExternal = external || /^https?:|^mailto:|^tel:/.test(href);
-
-  if (isExternal) {
+  if (isExternalHref(href)) {
+    const newTab = /^https?:/.test(href);
     return (
-      <a href={href} target="_blank" rel="noreferrer" className={cls}>
+      <a
+        href={href}
+        className={className}
+        {...(newTab ? { target: "_blank", rel: "noreferrer" } : {})}
+      >
         {children}
       </a>
     );
   }
   return (
-    <Link href={href} className={cls}>
+    <Link href={href} className={className}>
       {children}
     </Link>
   );
 }
 
-/* Text link with the growing underline used throughout the template. */
+function Arrow() {
+  return (
+    <span
+      aria-hidden
+      className="inline-block transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/btn:translate-x-1"
+    >
+      &rarr;
+    </span>
+  );
+}
+
+export function Button({
+  href,
+  children,
+  variant = "ink",
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  variant?: "ink" | "tomato" | "outline" | "cream" | "outlineLight";
+  className?: string;
+}) {
+  const base =
+    "group/btn inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-[0.95rem] font-medium transition-[background-color,color,border-color,transform] duration-300 ease-[var(--ease-out-expo)] active:scale-[0.97]";
+  const variants = {
+    ink: "bg-ink text-cream hover:bg-tomato",
+    tomato: "bg-tomato text-cream hover:bg-ink",
+    outline: "border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-cream",
+    cream: "bg-cream text-ink hover:bg-mustard",
+    outlineLight: "border border-cream/40 text-cream hover:border-cream hover:bg-cream hover:text-ink",
+  } as const;
+
+  return (
+    <SmartLink href={href} className={`${base} ${variants[variant]} ${className}`}>
+      {children}
+      <Arrow />
+    </SmartLink>
+  );
+}
+
 export function TextLink({
   href,
   children,
@@ -51,56 +80,49 @@ export function TextLink({
   children: ReactNode;
   className?: string;
 }) {
-  const isExternal = /^https?:|^mailto:|^tel:/.test(href);
-  // Standing underline — an in-body CTA needs to read as a link at a glance.
-  const cls = `inline-block text-[0.95rem] font-medium underline decoration-1 underline-offset-[6px] transition-colors duration-200 hover:text-bark ${className}`;
-  if (isExternal) {
-    return (
-      <a href={href} target="_blank" rel="noreferrer" className={cls}>
-        {children}
-      </a>
-    );
-  }
   return (
-    <Link href={href} className={cls}>
+    <SmartLink
+      href={href}
+      className={`group/btn inline-flex items-center gap-2 border-b border-current pb-1 text-[0.95rem] font-medium transition-colors duration-300 hover:text-tomato ${className}`}
+    >
       {children}
-    </Link>
+      <Arrow />
+    </SmartLink>
   );
 }
 
-/* Eyebrow + heading pair. */
-export function SectionHead({
-  eyebrow,
-  heading,
-  body,
-  align = "left",
+/* Section label: a mono index number and a short name, sat on a hairline. */
+export function Label({
+  index,
+  children,
   className = "",
+  light = false,
 }: {
-  eyebrow?: string;
-  heading: string;
-  body?: string;
-  align?: "left" | "center";
+  index?: string;
+  children: ReactNode;
   className?: string;
+  light?: boolean;
 }) {
   return (
-    <div
-      className={`${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"} ${className}`}
+    <p
+      className={`tag flex items-center gap-3 ${light ? "text-cream/60" : "text-mute"} ${className}`}
     >
-      {eyebrow ? <p className="eyebrow mb-5">{eyebrow}</p> : null}
-      <h2 className="t-h2">{heading}</h2>
-      {body ? (
-        <p className="t-lead mt-6 max-w-2xl text-bark/90" style={align === "center" ? { marginInline: "auto" } : undefined}>
-          {body}
-        </p>
+      {index ? (
+        <span className={light ? "text-mustard" : "text-tomato"}>{index}</span>
       ) : null}
-    </div>
+      <span>{children}</span>
+    </p>
   );
 }
 
-/* Channel chip used on category cards. */
-export function Chip({ children }: { children: ReactNode }) {
+/* Channel chip — looks like a sticker on a shelf edge. */
+export function Chip({ children, active = false }: { children: ReactNode; active?: boolean }) {
   return (
-    <span className="border border-ink/20 px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-bark">
+    <span
+      className={`tag rounded-full border px-2.5 py-1 text-[0.625rem] ${
+        active ? "border-tomato bg-tomato text-cream" : "border-ink/20 text-ink/70"
+      }`}
+    >
       {children}
     </span>
   );

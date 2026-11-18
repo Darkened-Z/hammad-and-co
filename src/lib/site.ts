@@ -24,6 +24,8 @@ export const site = {
   phone: "0161 000 0000",
   email: "hello@hammadandco.co.uk",
 
+  openFrom: 8,
+  openTo: 21,
   hours: [
     { days: "Monday – Sunday", time: "8:00 – 21:00" },
     { days: "Trade deliveries", time: "Tuesday & Friday" },
@@ -51,6 +53,8 @@ export const nav = [
 
 export const hero = {
   heading: "The shelves you trust, wherever you shop",
+  // Same sentence, broken for the display setting. Wrap a word in *…* to italicise it.
+  lines: ["The shelves", "you *trust,*", "wherever", "you shop."],
   sub: "A family grocery and general store in Manchester — now feeding thousands more through Amazon and eBay.",
   cta: { label: "Browse the shelves", href: "/shop" },
   image: "/images/produce-shelves.jpg",
@@ -66,7 +70,7 @@ export const stats = [
 
 export const about = {
   eyebrow: "About",
-  heading: "It started with one shuttered unit and a Transit van",
+  heading: "It started with one shuttered unit and a *Transit van.*",
   body: [
     "Fifteen years behind a counter teaches you what people actually reach for — not what a category manager thinks they should.",
     "In 2019 we put the same shelves online. Same buying, same prices, same answer when something turns up wrong.",
@@ -285,7 +289,7 @@ export const values = [
 ];
 
 export const closing = {
-  heading: "Come see us, or have it sent",
+  heading: "Come see us, *or have it sent.*",
   body: "Cheetham Hill seven days a week. Amazon and eBay whenever the shop is shut.",
   primary: { label: "Get directions", href: site.address.mapsUrl },
   secondary: { label: "Talk to us", href: "/contact" },

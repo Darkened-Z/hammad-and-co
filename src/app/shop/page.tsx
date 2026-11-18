@@ -3,8 +3,9 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import ShopGrid from "@/components/ShopGrid";
 import ClosingBand from "@/components/ClosingBand";
+import FeaturedCarousel from "@/components/FeaturedCarousel";
 import Reveal from "@/components/Reveal";
-import { SectionHead, TextLink } from "@/components/ui";
+import { Label } from "@/components/ui";
 import { channels, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,22 +15,10 @@ export const metadata: Metadata = {
 };
 
 const deliveryNotes = [
-  {
-    title: "In store",
-    body: "Cheetham Hill, seven days. Produce lands at six and is out by nine. Card, cash, contactless.",
-  },
-  {
-    title: "Amazon",
-    body: "Prime-eligible on our core lines. Ordered before 4pm on a working day, it leaves the same day.",
-  },
-  {
-    title: "eBay",
-    body: "Bulk cases and clearance, tracked 48-hour courier. Combined postage on multiple lots.",
-  },
-  {
-    title: "Trade round",
-    body: "Tuesday and Friday across Greater Manchester. Free over £150, otherwise a flat £8.",
-  },
+  { title: "In store", when: "7 days", body: "Cheetham Hill. Produce lands at six and is out by nine. Card, cash, contactless." },
+  { title: "Amazon", when: "Same day", body: "Prime-eligible on our core lines. Ordered before 4pm on a working day, it leaves the same day." },
+  { title: "eBay", when: "48 hr", body: "Bulk cases and clearance, tracked 48-hour courier. Combined postage on multiple lots." },
+  { title: "Trade round", when: "Tue & Fri", body: "Across Greater Manchester. Free over £150, otherwise a flat £8." },
 ];
 
 export default function ShopPage() {
@@ -37,88 +26,94 @@ export default function ShopPage() {
     <>
       <PageHero
         eyebrow="Shop"
-        heading="Fourteen hundred lines, three ways to get them"
+        heading="Fourteen hundred lines, *three ways* to get them."
         body="The range below is what we hold. Where you buy it only changes how it reaches you."
-        image="/images/citrus-crates.jpg"
-        imageAlt="Crates of citrus fruit stacked in the shop"
       />
 
-      {/* Channel strip */}
-      <section className="bg-bone pt-20 md:pt-24">
-        <div className="shell grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {channels.map((c, i) => (
-            <Reveal key={c.id} delay={i * 70}>
-              <div className="border-t border-ink/20 pt-6">
-                <p className="font-display text-[0.75rem] font-bold uppercase tracking-[0.16em] text-bark/60">
-                  {c.badge}
-                </p>
-                <h2 className="t-h4 mt-4">{c.name}</h2>
-                <div className="mt-4">
-                  <TextLink href={c.cta.href} className="text-ink">
+      {/* Channel ledger */}
+      <section className="pt-2">
+        <div className="shell grid sm:grid-cols-2 lg:grid-cols-4">
+          {channels.map((c, i) => {
+            const external = /^https?:/.test(c.cta.href);
+            return (
+              <Reveal key={c.id} delay={i * 70} className={`border-b border-line lg:border-b-0 ${i ? "lg:border-l" : ""} ${i % 2 ? "sm:border-l" : ""}`}>
+                <a
+                  href={c.cta.href}
+                  {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  className="group block px-0 py-8 transition-colors duration-300 hover:bg-cream sm:px-6 lg:first:pl-0"
+                >
+                  <p className="tag text-tomato">{c.badge}</p>
+                  <h2 className="mt-4 font-display text-[1.75rem] leading-none tracking-[-0.03em] transition-[font-style] group-hover:italic">
+                    {c.name}
+                  </h2>
+                  <p className="mt-5 inline-flex items-center gap-2 text-[0.9rem] font-medium">
                     {c.cta.label}
-                  </TextLink>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                    <span aria-hidden className="transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1">&rarr;</span>
+                  </p>
+                </a>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
       {/* Range */}
-      <section className="bg-bone py-20 md:py-28">
+      <section className="py-20 md:py-28">
         <div className="shell">
-          <SectionHead
-            eyebrow="The range"
-            heading="Everything we hold, by department"
-            className="mb-14"
-          />
+          <Label index="01" className="mb-6">Everything we hold, by department</Label>
           <ShopGrid />
         </div>
       </section>
 
-      {/* Delivery + how it works */}
-      <section className="bg-sage/35 py-24 md:py-32">
-        <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-16">
+      {/* Delivery timetable */}
+      <section className="bg-cream py-24 md:py-32">
+        <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <p className="eyebrow mb-6">Getting it to you</p>
-            <h2 className="t-h2">Same stockroom, four routes out of it</h2>
-            <p className="t-lead mt-6 text-bark/90">
-              Nothing is drop-shipped and nothing is held by a third party. Every
-              order is picked by someone who works in the shop.
+            <Label index="02">Getting it to you</Label>
+            <h2 className="t-h2 mt-8">Same stockroom, <em className="text-tomato">four routes</em> out of it.</h2>
+            <p className="t-lead mt-6 text-ink/70">
+              Nothing is drop-shipped and nothing is held by a third party. Every order is picked by someone who works in the shop.
             </p>
-            <div className="relative mt-10 aspect-[5/3]">
+            <Reveal variant="clip" className="relative mt-10 aspect-[5/3] overflow-hidden">
               <Image
                 src="/images/warehouse-pallets.jpg"
                 alt="Palletised stock in the wholesale unit"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="photo"
               />
-            </div>
+            </Reveal>
           </div>
 
-          <div className="lg:col-span-7 lg:pl-6">
-            <dl>
-              {deliveryNotes.map((d, i) => (
-                <Reveal key={d.title} delay={i * 70}>
-                  <div className="grid gap-3 border-t border-ink/15 py-7 md:grid-cols-12 md:gap-8">
-                    <dt className="font-display text-[1.15rem] font-bold tracking-[-0.02em] text-ink md:col-span-4">
+          <div className="lg:col-span-6 lg:col-start-7">
+            <table className="w-full border-collapse text-left">
+              <caption className="sr-only">Delivery routes</caption>
+              <thead>
+                <tr className="tag border-b border-ink text-mute">
+                  <th scope="col" className="pb-3 font-medium">Route</th>
+                  <th scope="col" className="pb-3 font-medium">Speed</th>
+                  <th scope="col" className="hidden pb-3 font-medium md:table-cell">Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {deliveryNotes.map((d) => (
+                  <tr key={d.title} className="border-b border-line align-top">
+                    <th scope="row" className="py-6 pr-4 font-display text-[1.5rem] font-normal leading-tight tracking-[-0.02em]">
                       {d.title}
-                    </dt>
-                    <dd className="text-[1rem] leading-[1.65] text-bark/90 md:col-span-8">
-                      {d.body}
-                    </dd>
-                  </div>
-                </Reveal>
-              ))}
-            </dl>
+                      <span className="mt-2 block font-text text-[0.95rem] leading-[1.6] tracking-normal text-ink/70 md:hidden">{d.body}</span>
+                    </th>
+                    <td className="py-7 pr-4">
+                      <span className="tag whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-cream">{d.when}</span>
+                    </td>
+                    <td className="hidden py-6 text-[0.975rem] leading-[1.6] text-ink/70 md:table-cell">{d.body}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-            <p className="mt-10 text-[0.95rem] text-bark/80">
+            <p className="mt-10 text-[1rem] text-ink/70">
               Looking for something not listed? Ring{" "}
-              <a
-                href={`tel:${site.phone.replace(/\s/g, "")}`}
-                className="link-underline text-ink"
-              >
+              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="font-medium text-ink underline decoration-tomato underline-offset-4">
                 {site.phone}
               </a>{" "}
               — if we can source it, we will.
@@ -127,6 +122,7 @@ export default function ShopPage() {
         </div>
       </section>
 
+      <FeaturedCarousel index="03" />
       <ClosingBand />
     </>
   );
