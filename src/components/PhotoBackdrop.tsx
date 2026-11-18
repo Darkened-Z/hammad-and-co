@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function PhotoBackdrop({
   src,
   gradient,
-  blend = "opacity-35 mix-blend-luminosity grayscale",
+  blend = "opacity-30",
   position = "center",
 }: {
   src: string;
@@ -19,7 +19,8 @@ export default function PhotoBackdrop({
         src={src}
         alt=""
         fill
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, 70vw"
+        quality={60}
         className={`object-cover ${blend}`}
         style={{ objectPosition: position }}
       />

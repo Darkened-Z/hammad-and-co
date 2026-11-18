@@ -10,7 +10,7 @@ export default function SiteFooter() {
   return (
     <footer className="relative isolate overflow-hidden bg-ink text-cream">
       <PhotoBackdrop
-        src="/images/store/drinks-aisle.jpg"
+        src="/images/store/bg/drinks-aisle.jpg"
         position="bottom"
         gradient="linear-gradient(180deg, rgb(23 21 15) 0%, rgb(23 21 15 / .92) 50%, rgb(23 21 15 / .62) 100%)"
       />

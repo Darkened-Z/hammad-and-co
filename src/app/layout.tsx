@@ -8,7 +8,7 @@ import "./globals.css";
 const display = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
+  weight: ["500", "600"],
   variable: "--font-fraunces",
   display: "swap",
 });
@@ -22,7 +22,8 @@ const text = Hanken_Grotesk({
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["500"],
+  preload: false,
   variable: "--font-jbmono",
   display: "swap",
 });

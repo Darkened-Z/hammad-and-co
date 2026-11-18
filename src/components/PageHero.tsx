@@ -23,7 +23,7 @@ export default function PageHero({
       {backdrop ? (
         <PhotoBackdrop
           src={backdrop}
-          blend="opacity-60 mix-blend-multiply grayscale"
+          blend="opacity-60 mix-blend-multiply"
           gradient="linear-gradient(180deg, rgb(242 237 227 / .25) 0%, rgb(242 237 227 / .7) 60%, rgb(242 237 227) 100%)"
         />
       ) : null}

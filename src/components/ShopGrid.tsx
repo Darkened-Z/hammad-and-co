@@ -18,7 +18,7 @@ export default function ShopGrid() {
 
   return (
     <div>
-      <div className="sticky top-[var(--header-h)] z-20 -mx-4 flex items-center gap-2 overflow-x-auto border-b border-line bg-paper/95 px-4 py-4 backdrop-blur-md [scrollbar-width:none] md:mx-0 md:px-0">
+      <div className="sticky top-[var(--header-h)] z-20 -mx-4 flex items-center gap-2 overflow-x-auto border-b border-line bg-paper px-4 py-4 [scrollbar-width:none] md:mx-0 md:px-0">
         <span className="tag mr-3 shrink-0 text-mute">Sold via</span>
         {FILTERS.map((f) => (
           <button

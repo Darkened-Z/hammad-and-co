@@ -8,8 +8,8 @@ export default function ClosingBand() {
   return (
     <section className="relative isolate overflow-hidden bg-tomato text-cream">
       <PhotoBackdrop
-        src="/images/store/crate-deals.jpg"
-        blend="opacity-60 mix-blend-multiply grayscale"
+        src="/images/store/bg/crate-deals.jpg"
+        blend="opacity-60 mix-blend-multiply"
         gradient="linear-gradient(100deg, rgb(214 58 31) 25%, rgb(214 58 31 / .4) 100%)"
       />
       <div className="shell grid gap-10 py-24 md:py-36 lg:grid-cols-12 lg:items-end">

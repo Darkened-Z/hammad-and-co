@@ -64,7 +64,7 @@ export default function RangeBento() {
                   ) : null}
                   <span className="mt-4 flex flex-wrap gap-1.5">
                     {c.where.map((w) => (
-                      <span key={w} className="tag rounded-full bg-cream/15 px-2.5 py-1 text-[0.6rem] backdrop-blur-sm">
+                      <span key={w} className="tag rounded-full bg-ink/55 px-2.5 py-1 text-[0.6rem]">
                         {w}
                       </span>
                     ))}

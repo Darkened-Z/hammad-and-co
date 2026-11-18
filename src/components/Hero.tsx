@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section className="pt-8 md:pt-12">
       <div className="shell">
-        <div className="tag rise flex flex-wrap gap-x-6 gap-y-1 border-b border-ink pb-3 text-mute">
+        <div className="tag flex flex-wrap gap-x-6 gap-y-1 border-b border-ink pb-3 text-mute">
           <span>{site.address.line1}, {site.address.city}</span>
           <span className="hidden sm:inline">Open 7 days</span>
           <a href={telHref} className="ml-auto text-ink hover:text-tomato">{site.phone}</a>
@@ -22,7 +22,7 @@ export default function Hero() {
               <span key={line} className="line-mask" aria-hidden>
                 <span
                   className={i ? "text-ink/40" : ""}
-                  style={{ animationDelay: `${80 + i * 110}ms` }}
+                  style={{ animationDelay: `${i * 80}ms` }}
                 >
                   {line}
                 </span>
@@ -30,7 +30,7 @@ export default function Hero() {
             ))}
           </h1>
 
-          <div className="rise lg:col-span-4 lg:pb-2" style={{ animationDelay: "300ms" }}>
+          <div className="lg:col-span-4 lg:pb-2">
             <p className="max-w-[34ch] text-[1.0625rem] leading-[1.55] text-ink/75">{hero.sub}</p>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
               <Button href={hero.cta.href}>{hero.cta.label}</Button>
@@ -42,10 +42,7 @@ export default function Hero() {
 
       <div className="shell mt-10 md:mt-14">
         <div className="relative">
-          <div
-            className="rise relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-[16/7]"
-            style={{ animationDelay: "380ms" }}
-          >
+          <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-[16/7]">
             <Image
               src={hero.image}
               alt={hero.imageAlt}
@@ -57,8 +54,7 @@ export default function Hero() {
           </div>
 
           <div
-            className="rise absolute -bottom-6 left-4 w-[10.5rem] -rotate-2 bg-mustard text-ink shadow-[0_10px_30px_-12px_rgb(23_21_15/0.5)] md:-bottom-8 md:left-8 md:w-[13rem]"
-            style={{ animationDelay: "700ms" }}
+            className="absolute -bottom-6 left-4 w-[10.5rem] -rotate-2 bg-mustard text-ink shadow-[0_10px_30px_-12px_rgb(23_21_15/0.5)] md:-bottom-8 md:left-8 md:w-[13rem]"
           >
             <p className="tag bg-tomato px-3 py-1.5 text-center text-cream">Every day</p>
             <p className="px-3 pt-2 text-center font-display text-[3.25rem] font-semibold leading-none tracking-[-0.05em] md:text-[4.25rem]">

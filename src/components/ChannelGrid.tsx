@@ -14,7 +14,7 @@ export default function ChannelGrid() {
   return (
     <section id="where-to-buy" className="relative isolate bg-leaf py-24 text-cream md:py-32">
       <PhotoBackdrop
-        src="/images/store/frozen-aisle.jpg"
+        src="/images/store/bg/frozen-aisle.jpg"
         position="bottom"
         gradient="linear-gradient(180deg, rgb(30 59 44) 0%, rgb(30 59 44 / .84) 45%, rgb(30 59 44 / .6) 100%)"
       />

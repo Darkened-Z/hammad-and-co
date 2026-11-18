@@ -7,7 +7,7 @@ export default function StatsRow() {
   return (
     <section className="relative isolate bg-leaf text-cream">
       <PhotoBackdrop
-        src="/images/store/water-pallets.jpg"
+        src="/images/store/bg/water-pallets.jpg"
         gradient="linear-gradient(90deg, rgb(30 59 44 / .96) 0%, rgb(30 59 44 / .72) 100%)"
       />
       <div className="shell grid grid-cols-2 gap-y-12 py-20 md:grid-cols-4 md:py-24">

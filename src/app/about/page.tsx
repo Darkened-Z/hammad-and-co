@@ -97,7 +97,7 @@ export default function AboutPage() {
       {/* Values — three rules, set like shop signage */}
       <section className="relative isolate bg-ink py-24 text-cream md:py-32">
         <PhotoBackdrop
-          src="/images/store/grocery-aisle.jpg"
+          src="/images/store/bg/grocery-aisle.jpg"
           gradient="linear-gradient(180deg, rgb(23 21 15 / .94) 0%, rgb(23 21 15 / .78) 100%)"
         />
         <div className="shell">

@@ -25,8 +25,8 @@ export default function ContactPage() {
     <>
       <section className="relative isolate pt-12 pb-4 md:pt-20">
         <PhotoBackdrop
-          src="/images/store/bakery-tables.jpg"
-          blend="opacity-60 mix-blend-multiply grayscale"
+          src="/images/store/bg/bakery-tables.jpg"
+          blend="opacity-60 mix-blend-multiply"
           gradient="linear-gradient(180deg, rgb(242 237 227 / .25) 0%, rgb(242 237 227 / .72) 60%, rgb(242 237 227) 100%)"
         />
         <div className="shell">

@@ -29,7 +29,7 @@ export default function ShopPage() {
         eyebrow="Shop"
         heading="Fourteen hundred lines, *three ways* to get them."
         body="The range below is what we hold. Where you buy it only changes how it reaches you."
-        backdrop="/images/store/endcap-99c.jpg"
+        backdrop="/images/store/bg/endcap-99c.jpg"
       />
 
       {/* Channel ledger */}

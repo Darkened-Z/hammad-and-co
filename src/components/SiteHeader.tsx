@@ -39,7 +39,7 @@ export default function SiteHeader() {
         open
           ? "border-b border-transparent bg-ink text-cream"
           : scrolled
-            ? "border-b border-line bg-paper/92 backdrop-blur-md"
+            ? "border-b border-line bg-paper"
             : "border-b border-transparent bg-paper"
       }`}
     >

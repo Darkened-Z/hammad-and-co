@@ -25,11 +25,6 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setShown(true);
-      return;
-    }
 
     const io = new IntersectionObserver(
       ([entry]) => {
