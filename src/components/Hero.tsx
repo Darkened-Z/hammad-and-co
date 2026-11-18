@@ -47,7 +47,9 @@ export default function Hero() {
               src={hero.image}
               alt={hero.imageAlt}
               fill
-              priority
+              preload
+              fetchPriority="high"
+              quality={60}
               sizes="(max-width: 1408px) 100vw, 88rem"
               className="photo object-[60%_center]"
             />

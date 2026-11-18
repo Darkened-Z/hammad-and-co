@@ -1,10 +1,8 @@
-"use client";
+import type { ReactNode } from "react";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-
-/* The hidden state lives in CSS (`.reveal[data-variant]`) so the <noscript>
-   rule in the layout can override it. The 1.5s failsafe forces content
-   visible if the observer never fires (headless captures, anchor landings). */
+/* Server-rendered: no hydration per instance. RevealObserver (in the layout)
+   flips data-shown when each one scrolls into view. The hidden state lives in
+   CSS so the <noscript> rule in the layout can undo it. */
 export default function Reveal({
   children,
   delay = 0,
@@ -18,40 +16,8 @@ export default function Reveal({
   className?: string;
   as?: "div" | "li" | "article" | "figure";
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
-    );
-    io.observe(el);
-
-    const failsafe = window.setTimeout(() => {
-      setShown(true);
-      io.disconnect();
-    }, 1500);
-
-    return () => {
-      io.disconnect();
-      window.clearTimeout(failsafe);
-    };
-  }, []);
-
   return (
     <Tag
-      ref={ref as never}
-      data-shown={shown}
       data-variant={variant}
       className={`reveal ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}

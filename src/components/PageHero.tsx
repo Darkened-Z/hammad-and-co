@@ -54,7 +54,7 @@ export default function PageHero({
               src={image}
               alt={imageAlt ?? ""}
               fill
-              priority
+              preload
               sizes="(max-width: 1408px) 100vw, 88rem"
               className="photo"
             />

@@ -72,6 +72,14 @@
   }
 }
 
+/* Skip style, layout and paint for sections until they near the viewport. */
+main > section:not(:first-child),
+main > div,
+body > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 @layer components {
   .shell {
     width: 100%;
