@@ -52,10 +52,9 @@ export const nav = [
 ];
 
 export const hero = {
-  heading: "The shelves you trust, wherever you shop",
-  // Same sentence, broken for the display setting. Wrap a word in *…* to italicise it.
-  lines: ["The shelves", "you *trust,*", "wherever", "you shop."],
-  sub: "A family grocery and general store in Manchester — now feeding thousands more through Amazon and eBay.",
+  heading: "Fresh in at six. On the shelf by nine.",
+  lines: ["Fresh in at six.", "On the shelf by nine."],
+  sub: "A family grocery on Cheetham Hill Road. Same stock across the counter, on Amazon and on eBay.",
   cta: { label: "Browse the shelves", href: "/shop" },
   image: "/images/store/produce-wide.jpg",
   imageAlt: "The fruit and veg section at Aliyar, with sweet potatoes in the bins up front",
