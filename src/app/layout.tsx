@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.descriptor}`,
     description: site.metaDescription,
     type: "website",
-    locale: "en_GB",
+    locale: "en_US",
   },
 };
 
@@ -48,7 +48,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en-GB"
+      lang="en-US"
       className={`${display.variable} ${text.variable} ${mono.variable}`}
     >
       <head>

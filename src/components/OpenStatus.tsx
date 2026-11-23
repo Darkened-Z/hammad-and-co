@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 
-function londonMinutes() {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/London",
+function storeMinutes() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
     hour: "2-digit",
     minute: "2-digit",
     hourCycle: "h23",
@@ -15,12 +15,14 @@ function londonMinutes() {
   return h * 60 + m;
 }
 
+const ampm = (h: number) => `${h % 12 || 12}${h < 12 ? "am" : "pm"}`;
+
 export default function OpenStatus({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState<boolean | null>(null);
 
   useEffect(() => {
     const check = () => {
-      const now = londonMinutes();
+      const now = storeMinutes();
       setOpen(now >= site.openFrom * 60 && now < site.openTo * 60);
     };
     check();
@@ -30,10 +32,10 @@ export default function OpenStatus({ className = "" }: { className?: string }) {
 
   const label =
     open === null
-      ? `Open daily ${site.openFrom}–${site.openTo}`
+      ? `Open daily ${ampm(site.openFrom)}–${ampm(site.openTo)}`
       : open
-        ? `Open now · till ${site.openTo}:00`
-        : `Closed · opens ${site.openFrom}:00`;
+        ? `Open now · till ${ampm(site.openTo)}`
+        : `Closed · opens ${ampm(site.openFrom)}`;
 
   return (
     <span className={`tag items-center gap-2 ${className}`}>

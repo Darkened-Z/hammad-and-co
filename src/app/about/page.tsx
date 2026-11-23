@@ -10,16 +10,16 @@ import { site, timeline, values } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `How ${site.name} went from one shuttered unit on Cheetham Hill to three trading counters.`,
+  description: `How ${site.name} went from one shuttered storefront on West Cold Spring Lane to three trading counters.`,
 };
 
 const ownerNote = [
   `I took the unit in ${site.established} because the rent was cheap and the street was busy. There was no plan beyond opening at seven and shutting at ten.`,
   "Before that I’d spent five years managing a grocery store, two years as an independent contractor for Amazon, and three years running shifts as assistant manager at Burger King. None of it was glamorous, but it taught me how stock actually moves and what people actually want when they are not being sold to.",
-  "What changed the business was not a strategy. It was cafés asking whether they could buy a case instead of a tin, and customers who had moved away asking whether we could post it. So we did both.",
+  "What changed the business was not a strategy. It was cafés asking whether they could buy a case instead of a can, and customers who had moved away asking whether we could ship it. So we did both.",
   "Most of our customers are not chasing the cheapest thing on the shelf. They want good things at a price that does not punish them for shopping carefully — that is who we buy for, every morning at market.",
   "Today the shop, the Amazon storefront and the eBay shop all run off one stockroom. If you buy a bag of rice online it is picked from the same pallet the man in front of you just bought from. That is the whole trick.",
-  "Outside the shop I have a stake in Smoke Zone with AZ Retail and in Pak Foods, a Save A Lot store — different counters, same instinct for what is worth stocking. The plan is more branches, not just more lines. Off the clock it is cricket and whatever trip I am planning next.",
+  "The shop trades as a Save A Lot. Outside it I have a stake in Smoke Zone with AZ Retail — different counters, same instinct for what is worth stocking. The plan is more branches, not just more lines. Off the clock it is cricket and whatever trip I am planning next.",
 ];
 
 export default function AboutPage() {

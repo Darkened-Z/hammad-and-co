@@ -9,7 +9,7 @@ import { channels, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Find ${site.name} on Cheetham Hill Road, or reach us by phone, email, Amazon or eBay.`,
+  description: `Find ${site.name} at 2705 West Cold Spring Lane, Baltimore, or reach us by phone, email, Amazon or eBay.`,
 };
 
 export default function ContactPage() {
@@ -70,7 +70,7 @@ export default function ContactPage() {
               <Label index="01">The shop</Label>
               <address className="mt-5 text-[1.125rem] not-italic leading-[1.6]">
                 {site.address.line1}<br />
-                {site.address.city} {site.address.postcode}<br />
+                {site.address.city}, {site.address.postcode}<br />
                 {site.address.country}
               </address>
               <a

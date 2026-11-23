@@ -11,30 +11,30 @@ export const site = {
   established: 2011,
   tagline: "The shelves you trust, wherever you shop",
   metaDescription:
-    "Aliyar is a family grocery and general store in Manchester, selling the same stock across the counter, on Amazon and on eBay.",
+    "Aliyar is a family-run Save A Lot grocery on West Cold Spring Lane in Baltimore, selling the same stock across the counter, on Amazon and on eBay.",
 
-  // TODO — replace with the real trading address, number and inbox.
   address: {
-    line1: "128 Cheetham Hill Road",
-    city: "Manchester",
-    postcode: "M8 8PZ",
-    country: "United Kingdom",
-    mapsUrl: "https://maps.google.com/?q=Cheetham+Hill+Road+Manchester",
+    line1: "2705 West Cold Spring Lane",
+    city: "Baltimore",
+    postcode: "MD 21215",
+    country: "United States",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=2705+W+Cold+Spring+Ln+Baltimore+MD+21215",
   },
-  phone: "0161 000 0000",
-  email: "hello@aliyar.co.uk",
+  // TODO — real store phone, inbox and hours not supplied yet.
+  phone: "(410) 000-0000",
+  email: "hello@aliyar.com",
 
   openFrom: 8,
   openTo: 21,
   hours: [
-    { days: "Monday – Sunday", time: "8:00 – 21:00" },
+    { days: "Monday – Sunday", time: "8am – 9pm" },
     { days: "Trade deliveries", time: "Tuesday & Friday" },
   ],
 
   // TODO — point these at the live storefronts.
   marketplaces: {
-    amazon: "https://www.amazon.co.uk/",
-    ebay: "https://www.ebay.co.uk/",
+    amazon: "https://www.amazon.com/",
+    ebay: "https://www.ebay.com/",
   },
 
   social: [
@@ -54,7 +54,7 @@ export const nav = [
 export const hero = {
   heading: "Fresh in at six. On the shelf by nine.",
   lines: ["Fresh in at six.", "On the shelf by nine."],
-  sub: "A family grocery on Cheetham Hill Road. Same stock across the counter, on Amazon and on eBay.",
+  sub: "A family-run Save A Lot on West Cold Spring Lane, Baltimore. Same stock across the counter, on Amazon and on eBay.",
   cta: { label: "Browse the shelves", href: "/shop" },
   portrait: "/images/hammad-portrait.jpg",
   portraitAlt: "Hammad Farooq, owner of Aliyar",
@@ -71,7 +71,7 @@ export const stats = [
 
 export const about = {
   eyebrow: "About",
-  heading: "It started with one shuttered unit and a *Transit van.*",
+  heading: "It started with one shuttered storefront and a *used box truck.*",
   body: [
     "Fifteen years behind a counter teaches you what people actually reach for — not what a category manager thinks they should.",
     "In 2019 we put the same shelves online. Same buying, same prices, same answer when something turns up wrong.",
@@ -107,7 +107,7 @@ export const channels: Channel[] = [
     id: "ebay",
     name: "eBay Shop",
     badge: "Bulk & rare",
-    body: "Case quantities, discontinued lines and imports you will not find on the high street. This is where the mixed stock lives.",
+    body: "Case quantities, discontinued lines and imports you will not find at the big-box stores. This is where the mixed stock lives.",
     cta: { label: "Open the eBay shop", href: site.marketplaces.ebay },
     image: "/images/store/pallet-deals.jpg",
     imageAlt: "Case stock stacked on pallets under the price boards",
@@ -116,7 +116,7 @@ export const channels: Channel[] = [
     id: "store",
     name: "The Shop",
     badge: "Open 7 days",
-    body: "Produce in at six, on the shelf by nine, gone by teatime. Card, cash, and a proper conversation across the counter.",
+    body: "Produce in at six, on the shelf by nine, gone by dinner. Card, cash, EBT, and a proper conversation across the counter.",
     cta: { label: "Get directions", href: site.address.mapsUrl },
     image: "/images/store/grocery-aisle.jpg",
     imageAlt: "A fully stocked grocery aisle inside the store",
@@ -125,7 +125,7 @@ export const channels: Channel[] = [
     id: "trade",
     name: "Trade & Wholesale",
     badge: "Account terms",
-    body: "Cases and pallets for cafés, takeaways and corner shops across Greater Manchester. Delivered Tuesday and Friday.",
+    body: "Cases and pallets for cafés, takeaways and corner stores across Baltimore City and County. Delivered Tuesday and Friday.",
     cta: { label: "Open an account", href: "/contact" },
     image: "/images/store/water-pallets.jpg",
     imageAlt: "Pallets of bottled water and soft drinks on the shop floor",
@@ -152,7 +152,7 @@ export const categories: Category[] = [
   {
     name: "Store Cupboard",
     blurb:
-      "Rice, flour, oils, pulses and tinned goods — household tins through to 20kg catering sacks.",
+      "Rice, flour, oils, pulses and tinned goods — household cans through to 50 lb catering sacks.",
     image: "/images/store/endcap-99c.jpg",
     imageAlt: "Tinned goods stacked on an endcap under 99¢ signs",
     where: ["Amazon", "eBay", "In store"],
@@ -168,7 +168,7 @@ export const categories: Category[] = [
   {
     name: "Household & Cleaning",
     blurb:
-      "Detergents, paper goods and kitchenware. Branded where it matters, own-label where it does not.",
+      "Detergents, paper goods and kitchenware. Name brands where it matters, store brand where it does not.",
     image: "/images/store/drinks-aisle.jpg",
     imageAlt: "Household and drinks aisle",
     where: ["Amazon", "In store"],
@@ -176,7 +176,7 @@ export const categories: Category[] = [
   {
     name: "Chilled & Dairy",
     blurb:
-      "Milk, yoghurt, cheese and cooked meats. Deliveries in daily, dated properly, rotated properly.",
+      "Milk, yogurt, cheese and deli meats. Deliveries in daily, dated properly, rotated properly.",
     image: "/images/store/salad-case.jpg",
     imageAlt: "The chilled case with bagged salads and fresh-cut produce",
     where: ["In store"],
@@ -200,7 +200,7 @@ export const categories: Category[] = [
   {
     name: "Weekly Boxes",
     blurb:
-      "Fruit and veg boxes made up Thursday night. Collect Friday, or delivered inside the M60.",
+      "Fruit and veg boxes made up Thursday night. Pick up Friday, or delivered inside the Beltway.",
     image: "/images/store/fruit-corner.jpg",
     imageAlt: "The fruit corner where weekly boxes are made up",
     where: ["Amazon", "In store"],
@@ -225,23 +225,23 @@ export const featured = {
 export const testimonials = [
   {
     name: "Aisha Rehman",
-    role: "Cheetham Hill",
+    role: "Park Heights",
     quote:
       "I have been getting my veg here since before the Amazon shop existed. Same quality when it arrives in a box, which frankly surprised me.",
     avatar: "/images/person-2.jpg",
   },
   {
     name: "Marcus Bell",
-    role: "Café owner, Ancoats",
+    role: "Café owner, Hampden",
     quote:
       "Ordered six cases on a Thursday. On the doorstep Friday morning, correctly picked, no chasing anyone.",
     avatar: "/images/person-1.jpg",
   },
   {
     name: "Danuta Kowalska",
-    role: "Salford",
+    role: "Pikesville",
     quote:
-      "Half my shopping list is not in the big supermarkets. It is all here — and the eBay shop posts it to my sister in Leeds.",
+      "Half my shopping list is not in the big supermarkets. It is all here — and the eBay shop ships it to my sister in Philadelphia.",
     avatar: "/images/person-3.jpg",
   },
 ];
@@ -250,7 +250,7 @@ export const timeline = [
   {
     year: "2011",
     title: "One shop, one van",
-    body: "Hammad takes on a shuttered unit on Cheetham Hill Road with four thousand pounds and a second-hand Transit.",
+    body: "Hammad takes on a shuttered storefront on West Cold Spring Lane with four thousand dollars and a used box truck.",
   },
   {
     year: "2015",
@@ -281,7 +281,7 @@ export const values = [
   },
   {
     title: "Priced plain",
-    body: "One price, on the shelf and on the listing. No inflated RRP, no strikethrough theatre, no fake countdowns.",
+    body: "One price, on the shelf and on the listing. No inflated MSRP, no strikethrough theatre, no fake countdowns.",
   },
   {
     title: "Answered properly",
@@ -291,7 +291,7 @@ export const values = [
 
 export const closing = {
   heading: "Come see us, *or have it sent.*",
-  body: "Cheetham Hill seven days a week. Amazon and eBay whenever the shop is shut.",
+  body: "West Cold Spring Lane seven days a week. Amazon and eBay whenever the shop is shut.",
   primary: { label: "Get directions", href: site.address.mapsUrl },
   secondary: { label: "Talk to us", href: "/contact" },
 };

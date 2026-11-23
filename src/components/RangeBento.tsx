@@ -27,7 +27,7 @@ export default function RangeBento() {
           </div>
           <div className="md:col-span-4 md:text-right">
             <p className="text-[1rem] leading-[1.6] text-ink/70 md:ml-auto md:max-w-xs">
-              Fourteen hundred lines, from a tin of chickpeas to a pallet of them.
+              Fourteen hundred lines, from a can of chickpeas to a pallet of them.
             </p>
             <Button href="/shop" variant="outline" className="mt-6">
               See the full range

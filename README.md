@@ -37,11 +37,11 @@ supplied:
 
 | What | Currently |
 | --- | --- |
-| Trading address | 128 Cheetham Hill Road, Manchester M8 8PZ |
-| Phone | 0161 000 0000 |
-| Email | hello@aliyar.co.uk |
-| Amazon storefront URL | amazon.co.uk root |
-| eBay shop URL | ebay.co.uk root |
+| Phone | (410) 000-0000 |
+| Email | hello@aliyar.com |
+| Hours | 8am – 9pm daily (unconfirmed) |
+| Amazon storefront URL | amazon.com root |
+| eBay shop URL | ebay.com root |
 | Social links | platform roots |
 | Stats (15 yrs / 1,400 lines / 4.8 avg) | plausible, unverified |
 | Testimonials | written to sound like real customers, not real quotes |

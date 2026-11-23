@@ -17,7 +17,7 @@ export default function SiteFooter() {
       <div className="shell pt-20 md:pt-28">
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="tag text-mustard">Est. {site.established} · Cheetham Hill</p>
+            <p className="tag text-mustard">Est. {site.established} · Baltimore, MD</p>
             <p className="mt-6 max-w-sm font-display text-[1.75rem] leading-[1.1] tracking-[-0.02em] md:text-[2.1rem]">
               Bought at market, sold <em className="text-mustard">three ways</em>, answered by a person.
             </p>
@@ -27,7 +27,7 @@ export default function SiteFooter() {
             <p className="tag text-cream/45">Find us</p>
             <address className="mt-5 space-y-1 text-[0.95rem] not-italic leading-[1.7] text-cream/80">
               <p>{site.address.line1}</p>
-              <p>{site.address.city} {site.address.postcode}</p>
+              <p>{site.address.city}, {site.address.postcode}</p>
               <p className="pt-3"><a href={telHref} className="link-underline">{site.phone}</a></p>
               <p><a href={`mailto:${site.email}`} className="link-underline">{site.email}</a></p>
             </address>

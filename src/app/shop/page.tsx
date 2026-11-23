@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const deliveryNotes = [
-  { title: "In store", when: "7 days", body: "Cheetham Hill. Produce lands at six and is out by nine. Card, cash, contactless." },
+  { title: "In store", when: "7 days", body: "West Cold Spring Lane. Produce lands at six and is out by nine. Card, cash, EBT, tap to pay." },
   { title: "Amazon", when: "Same day", body: "Prime-eligible on our core lines. Ordered before 4pm on a working day, it leaves the same day." },
   { title: "eBay", when: "48 hr", body: "Bulk cases and clearance, tracked 48-hour courier. Combined postage on multiple lots." },
-  { title: "Trade round", when: "Tue & Fri", body: "Across Greater Manchester. Free over £150, otherwise a flat £8." },
+  { title: "Trade round", when: "Tue & Fri", body: "Across Baltimore City and County. Free over $150, otherwise a flat $8." },
 ];
 
 export default function ShopPage() {
